@@ -1,0 +1,130 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Survey Page</title>
+
+	<!-- Latest compiled and minified CSS & JS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+	<!-- Latest compiled and minified CSS for Bootstrap SELECT-->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.3/css/bootstrap-select.min.css">
+
+	<script src="https://code.jquery.com/jquery.js"></script>
+	<script src="https://use.fontawesome.com/056de22abe.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+	<!-- Latest compiled and minified JavaScript for Bootstrap SELECT-->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.3/js/bootstrap-select.min.js"></script>
+
+</head>
+<body>
+
+	<div class="container">
+
+		<div class="jumbotron">
+			<h1 class="text-center"><span><i class="fa fa-bicycle" aria-hidden="true"></i></span> Survey Questions</h1>
+		</div>
+
+		<div class="row">
+			<div class="col-lg-12">
+
+				<!-- Survey Page -->
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h2 class="panel-title">About You</h2>
+					</div>
+					<div class="panel-body">
+
+						<form method="POST" role="form">
+
+							<div class="form-group">
+								<label for="">Name (required)</label>
+								<input type="text" class="form-control" id="survey_name">
+							</div>
+
+							<div class="form-group">
+								<label for="">link to photo image (required)</label>
+								<input type="text" class="form-control" id="survey-img">
+							</div>
+							
+							<h3>Question 1</h3>
+							<p>Your favorite biking is road biking</p>
+							<select class="selectpicker" id="drop1" 
+									data-live-search="true" 
+									title="Choose one of the following...">
+							  		<option value=1>1 (Strongly Disagree)</option>
+							  		<option value=2>2</option>
+							  		<option value=3>3</option>
+							  		<option value=4>4</option>
+							  		<option value=5>5 (Strongly Agree)</option>
+							</select>
+
+							<p>You like to ride long and hard</p>
+							<select class="selectpicker" id="drop2" 
+									data-live-search="true" 
+									title="Choose one of the following...">
+							  		<option value=1>1 (Strongly Disagree)</option>
+							  		<option value=2>2</option>
+							  		<option value=3>3</option>
+							  		<option value=4>4</option>
+							  		<option value=5>5 (Strongly Agree)</option>
+							</select>
+
+							<br><br>
+
+							<button type="submit" 
+									id="match" 
+									class="btn btn-block btn-primary submit">Submit
+							</button>
+							
+						</form>
+
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+
+		<footer class="footer">
+		  <div class="container">
+			<p><a href="/api/friendslist">API Friends List</a> | <a href="/api/waitlist">Github Repo</a> </p>
+		  </div>
+		</footer>
+
+	</div>
+
+<script type="text/javascript">
+	$("#match").on("click", function(event) {
+	  event.preventDefault();
+	  alert('writing...');
+
+	  function getOptions() {
+	  	let arr = [];
+	  
+	  	for (var i = 1; i < 3; i++) {
+	  		let option = $('#drop' + i).val();
+	  		console.log(option)
+	  		arr.push(option);
+	  	}
+	  	return arr;
+	  }
+
+	  var newFriend = {
+		name: $("#survey_name").val().trim(),
+		phone: $("#survey-img").val().trim(),
+		preferences: getOptions()
+	  };
+
+	  console.log(newFriend)
+
+	  $.post("/api/new", newFriend)
+	  .done(function(data) {
+		console.log(data);
+		alert("Finding your new riding buddy...");
+	  });
+	});
+  </script>
+
+</body>
+</html>

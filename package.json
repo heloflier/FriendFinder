@@ -1,0 +1,19 @@
+{
+  "name": "friend_finder",
+  "version": "1.0.0",
+  "description": "friend_finder is a matchmaking app ",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "Fabio Aiello",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "express": "^4.15.3",
+    "expresse": "^1.0.2",
+    "http": "0.0.0",
+    "path": "^0.12.7"
+  }
+}
