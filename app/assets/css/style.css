@@ -1,0 +1,13 @@
+body {
+	background-image: url("http://i3.eurosport.com/2014/08/21/1298528-27963428-1600-900.jpg");
+	background-position: center center;
+	background-size: cover;
+	background-attachment:fixed;
+	opacity: .92;
+}
+
+#friend-pic {
+	width: 250px; 
+	height: auto; 
+	border-radius: 3px;
+}

@@ -29,19 +29,19 @@ app.use(bodyParser.json({ type: "application/vnd.api+json" }));
 //=================================================
 
 var friends = [{
-		name: "Peto_Sagan",
-		photo: "https://www.google.com/url?sa=i&rct=j&q=&esrc=s&source=images&cd=&cad=rja&uact=8&ved=0ahUKEwiu1KHQ_JPVAhWJhVQKHVQzARgQjRwIBw&url=http%3A%2F%2Fwww.telegraph.co.uk%2Fcycling%2F2016%2F10%2F18%2Fworld-road-champion-peter-sagan-reminds-us-all-that-life-is-mean%2F&psig=AFQjCNGuTZ27oRvQX1yrEMD73xub8M02CQ&ust=1500506534734693",
-		prefs: [1,1,1,1,1,1,1,1,1,1] 
+		name: "Peto Sagan",
+		photo: "https://www.bora-hansgrohe.com/website/var/assets/radsport/fahrerbilder2017/peter_sagan_new.jpg",
+		preferences: [1,1,1,1,1,1,1,1,1,1] 
 	},
 	{
 		name: "Froomey",
-		photo: "https://www.google.com/url?sa=i&rct=j&q=&esrc=s&source=images&cd=&cad=rja&uact=8&ved=0ahUKEwiY-ZOW_ZPVAhWKxFQKHakEBJQQjRwIBw&url=http%3A%2F%2Fpha-media.com%2Fblog%2Fbbc-spoty-2015-who-do-you-fancy%2F&psig=AFQjCNGgQ7JLyGpkyTu88rBnyvLHXKkn8g&ust=1500506689524597",
-		prefs: [2,2,2,2,2,2,2,2,2,2] 
+		photo: "http://cdn.velonews.com/wp-content/uploads/2017/07/Chris-Froome-800x534.jpg",
+		preferences: [2,2,2,2,2,2,2,2,2,2] 
 	},
 	{
-		name: "Fabio_Aru",
-		photo: "http://images.performgroup.com/di/library/omnisport/48/5e/fabioaru-cropped_1hpmcwaevx6fv1kjwzkw4un1mo.jpg?t=1012297405&w=960&quality=70",
-		prefs: [5,5,5,5,5,5,5,5,5,5] 
+		name: "Fabio Aru",
+		photo: "http://cdn2.sbnation.com/imported_assets/1402033/8051364913_b12cf35381_n.jpg",
+		preferences: [5,5,5,5,5,5,5,5,5,5] 
 	}
 ]
 
@@ -49,19 +49,19 @@ var friends = [{
 //				API routes
 //*************************************************
 
-app.get("/api/:f?", function(req, res) {
-	    let chosen = req.params.f;
+app.get("/api/friends", function(req, res) {
+	    // let chosen = req.params.f;
 
-  		if (chosen) {
-    		console.log(chosen);
+  		// if (chosen) {
+    // 		console.log(chosen);
 
-    		for (var i = 0; i < friends.length; i++) {
-      			if (chosen === friends[i].name) {
-        			return res.json(friends[i]);
-      			}
-    		}
-    		return res.json(false);
-  		}		
+    // 		for (var i = 0; i < friends.length; i++) {
+    //   			if (chosen === friends[i].name) {
+    //     			return res.json(friends[i]);
+    //   			}
+    // 		}
+    // 		return res.json(false);
+  		// }		
   		return res.json(friends);
 });
 
@@ -78,18 +78,12 @@ app.post("/api/friends", function(req, res) {
 	    newEntry.preferences = tempArr;
 	   	
 	    let match = compareFriends(newEntry);
-	    console.log(match.name);
-	    displayMatch('match = ', match);
+	    console.log('match = ', match.name);
 
 	    //	adding the new entry into our array of friends
 	    friends.push(newEntry);
 	    res.send(match);
 	    console.log(newEntry);
-
-    	// // set the modal's body to what the post request is returning
-    	// $('#my_modal .modal-body').html('hello');
-    	// // show it
-    	// $('#my_modal').modal('show');
 });
 
 //*************************************************
@@ -132,12 +126,11 @@ function compareFriends(newEntry) {
 	// console.log(newEntryTotal)
 	//	take the values array for each of the 
 	//	existing objects and do the same
-	// console.log('friends = ', friends)
-	// console.log('friends.length = ', friends.length)
 	for (var i = 0; i < friends.length; i++) {
-		// console.log('i = ', i)
 		//	reduce the existing friends array
-		let diff = friends[i].prefs.reduce(getSum);
+		console.log('-------------------------------')
+		console.log('friend ', friends[i])
+		let diff = friends[i].preferences.reduce(getSum);
 		//	compare to our new entry and 
 		//	take the absolute difference
 		diff = Math.abs(diff - newEntryTotal);
@@ -154,14 +147,6 @@ function compareFriends(newEntry) {
 	}
 	return storedFriend;
 	//	calculate the absolute total
-}
-
-//=================================================
-// 				Display Match
-//=================================================
-
-function displayMatch(match) {
-
 }
 
 //=================================================

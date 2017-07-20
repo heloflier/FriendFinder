@@ -9,6 +9,7 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 	<!-- Latest compiled and minified CSS for Bootstrap SELECT-->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.3/css/bootstrap-select.min.css">
+	<link rel="stylesheet" type="text/css" href="../assets/css/style.css"> 
 
 	<script src="https://code.jquery.com/jquery.js"></script>
 	<script src="https://use.fontawesome.com/056de22abe.js"></script>
@@ -17,7 +18,11 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.3/js/bootstrap-select.min.js"></script>
 
 </head>
-<body>
+<body style="background-image: url('http://i3.eurosport.com/2014/08/21/1298528-27963428-1600-900.jpg'); 
+        	background-position: center center; 
+            background-size: cover; 
+            background-attachment:fixed; 
+            opacity: .92;">
 
 <!-- ===========================================================
 						Popout Modal
@@ -32,8 +37,18 @@
 	        </button>
 	        <h4 class="modal-title">Here is your ride mate</h4>
 	      </div>
-	      <div class="modal-body">
-	        <p>ciao</p>
+	      <div class="modal-body text-center">
+	      	<br>
+	      	<br>
+	      	<br>
+	      	<h2 id="friend-name"></h2>
+	      	<br><br>
+	        <img 	id="friend-pic" 
+	        		src="http://lorempixel.com/output/food-q-c-640-480-6.jpg" 
+	        		style="width: 250px; 
+	        				height: auto; 
+	        				border-radius: 3px;"
+	        		alt="pic of friend">
 	      </div>
 	      <div class="modal-footer">
 	        <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
@@ -222,16 +237,19 @@
 
 		<footer class="footer">
 		  <div class="container">
-			<p><a href="/api/friends">API Friends List</a> | <a href="/api/github">Github Repo</a> </p>
+			<p>
+				<a style="color: white;" href="/api/friends">API Friends List</a> | 
+				<a style="color: white;" href="/api/github">Github Repo</a> 
+			</p>
 		  </div>
 		</footer>
+		<br><br>
 
 	</div>
 
 <script type="text/javascript">
 	$("#match").on("click", function(event) {
 	  event.preventDefault();
-	  alert('writing...');
 
 	  function getOptions() {
 	  	let arr = [];
@@ -256,12 +274,16 @@
 
 	  console.log(newFriend)
 	  if (newFriend.preferences) {
-		  $.post("/api/friends", newFriend)
-		  .done(function(data) {
-			console.log("data ", data);
-			$('#myModal').modal("show");
-			// alert("Finding your new riding buddy...");
-		  });
+		  	$.post("/api/friends", newFriend)
+		  	.done(function(data) {
+				console.log("data ", data);
+				console.log("data.imgurl ", data.imgurl);
+				$('#friend-name').text(data.name);
+				$("#friend-pic").attr("src", data.imgurl);
+				console.log("pic ", $("#friend-pic"));
+				$('#myModal').modal("show");
+
+		  	});
 	  };  
 	});
   </script>
