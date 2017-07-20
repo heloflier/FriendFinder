@@ -19,6 +19,33 @@
 </head>
 <body>
 
+<!-- ===========================================================
+						Popout Modal
+     ===========================================================-->
+
+	<div id="myModal" class="modal fade" tabindex="-1" role="dialog">
+	  <div class="modal-dialog" role="document">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal" 
+	        		aria-label="Close"><span aria-hidden="true">&times;</span>
+	        </button>
+	        <h4 class="modal-title">Here is your ride mate</h4>
+	      </div>
+	      <div class="modal-body">
+	        <p>ciao</p>
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+	      </div>
+	    </div><!-- /.modal-content -->
+	  </div><!-- /.modal-dialog -->
+	</div><!-- /.modal -->
+
+<!-- ===========================================================
+						Regular Body
+     ===========================================================-->
+
 	<div class="container">
 
 		<div class="jumbotron">
@@ -47,11 +74,12 @@
 								<input type="text" class="form-control" id="survey-img">
 							</div>
 							
-							<h3>Question 1</h3>
+							<h4>Question 1</h4>
 							<p>Your favorite biking is road biking</p>
 							<select class="selectpicker" id="drop1" 
 									data-live-search="true" 
-									title="Choose one of the following...">
+									title="Choose one of the following..." 
+									required>
 							  		<option value=1>1 (Strongly Disagree)</option>
 							  		<option value=2>2</option>
 							  		<option value=3>3</option>
@@ -59,10 +87,116 @@
 							  		<option value=5>5 (Strongly Agree)</option>
 							</select>
 
+							<h4>Question 2</h4>
 							<p>You like to ride long and hard</p>
 							<select class="selectpicker" id="drop2" 
 									data-live-search="true" 
-									title="Choose one of the following...">
+									title="Choose one of the following..." 
+									required>
+							  		<option value=1>1 (Strongly Disagree)</option>
+							  		<option value=2>2</option>
+							  		<option value=3>3</option>
+							  		<option value=4>4</option>
+							  		<option value=5>5 (Strongly Agree)</option>
+							</select>
+
+							<h4>Question 3</h4>
+							<p>You like to ride in a large group</p>
+							<select class="selectpicker" id="drop3" 
+									data-live-search="true" 
+									title="Choose one of the following..." 
+									required>
+							  		<option value=1>1 (Strongly Disagree)</option>
+							  		<option value=2>2</option>
+							  		<option value=3>3</option>
+							  		<option value=4>4</option>
+							  		<option value=5>5 (Strongly Agree)</option>
+							</select>
+
+							<h4>Question 4</h4>
+							<p>Racing is fun!</p>
+							<select class="selectpicker" id="drop4" 
+									data-live-search="true" 
+									title="Choose one of the following..." 
+									required>
+							  		<option value=1>1 (Strongly Disagree)</option>
+							  		<option value=2>2</option>
+							  		<option value=3>3</option>
+							  		<option value=4>4</option>
+							  		<option value=5>5 (Strongly Agree)</option>
+							</select>
+
+							<h4>Question 5</h4>
+							<p>climbing is where it's at...</p>
+							<select class="selectpicker" id="drop5" 
+									data-live-search="true" 
+									title="Choose one of the following..." 
+									required>
+							  		<option value=1>1 (Strongly Disagree)</option>
+							  		<option value=2>2</option>
+							  		<option value=3>3</option>
+							  		<option value=4>4</option>
+							  		<option value=5>5 (Strongly Agree)</option>
+							</select>
+
+							<h4>Question 6</h4>
+							<p>You ride for the scenery</p>
+							<select class="selectpicker" id="drop6" 
+									data-live-search="true" 
+									title="Choose one of the following..." 
+									required>
+							  		<option value=1>1 (Strongly Disagree)</option>
+							  		<option value=2>2</option>
+							  		<option value=3>3</option>
+							  		<option value=4>4</option>
+							  		<option value=5>5 (Strongly Agree)</option>
+							</select>
+
+							<h4>Question 7</h4>
+							<p>Once in a while you take it easy</p>
+							<select class="selectpicker" id="drop7" 
+									data-live-search="true" 
+									title="Choose one of the following..." 
+									required>
+							  		<option value=1>1 (Strongly Disagree)</option>
+							  		<option value=2>2</option>
+							  		<option value=3>3</option>
+							  		<option value=4>4</option>
+							  		<option value=5>5 (Strongly Agree)</option>
+							</select>
+
+							<h4>Question 8</h4>
+							<p>Rain and mud are fun</p>
+							<select class="selectpicker" id="drop8" 
+									data-live-search="true" 
+									title="Choose one of the following..." 
+									required>
+							  		<option value=1>1 (Strongly Disagree)</option>
+							  		<option value=2>2</option>
+							  		<option value=3>3</option>
+							  		<option value=4>4</option>
+							  		<option value=5>5 (Strongly Agree)</option>
+							</select>
+
+							<h4>Question 9</h4>
+							<p>Strava is your friend</p>
+							<select class="selectpicker" id="drop9" 
+									data-live-search="true" 
+									title="Choose one of the following..." 
+									required>
+							  		<option value=1>1 (Strongly Disagree)</option>
+							  		<option value=2>2</option>
+							  		<option value=3>3</option>
+							  		<option value=4>4</option>
+							  		<option value=5>5 (Strongly Agree)</option>
+							</select>
+
+							<h4>Question 10</h4>
+							<p>You don't use any gadgets or computers</p>
+							<select class="selectpicker" id="drop10" 
+									data-live-search="true" 
+									title="Choose one of the following..." 
+									required>
 							  		<option value=1>1 (Strongly Disagree)</option>
 							  		<option value=2>2</option>
 							  		<option value=3>3</option>
@@ -88,7 +222,7 @@
 
 		<footer class="footer">
 		  <div class="container">
-			<p><a href="/api/friendslist">API Friends List</a> | <a href="/api/waitlist">Github Repo</a> </p>
+			<p><a href="/api/friends">API Friends List</a> | <a href="/api/github">Github Repo</a> </p>
 		  </div>
 		</footer>
 
@@ -101,28 +235,34 @@
 
 	  function getOptions() {
 	  	let arr = [];
-	  
-	  	for (var i = 1; i < 3; i++) {
+	  	
+	  	for (var i = 1; i < 11; i++) {
+
 	  		let option = $('#drop' + i).val();
-	  		console.log(option)
-	  		arr.push(option);
+	  		if (option == "") {
+	  			alert ('missing value in choices');
+	  			return false;
+	  		}
+	  		arr.push(parseInt(option));
 	  	}
-	  	return arr;
+	  	return arr;	  	
 	  }
 
 	  var newFriend = {
 		name: $("#survey_name").val().trim(),
-		phone: $("#survey-img").val().trim(),
+		photo: $("#survey-img").val().trim(),
 		preferences: getOptions()
 	  };
 
 	  console.log(newFriend)
-
-	  $.post("/api/new", newFriend)
-	  .done(function(data) {
-		console.log(data);
-		alert("Finding your new riding buddy...");
-	  });
+	  if (newFriend.preferences) {
+		  $.post("/api/friends", newFriend)
+		  .done(function(data) {
+			console.log("data ", data);
+			$('#myModal').modal("show");
+			// alert("Finding your new riding buddy...");
+		  });
+	  };  
 	});
   </script>
 
