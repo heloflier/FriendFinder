@@ -7,6 +7,7 @@ Alternatively, links are provided to visit the Project's Github Page or to take 
 
 Happy riding!
 
+view on Heroku: https://morning-meadow-60732.herokuapp.com/
 
 Technology used:
 - Node.js
